@@ -188,7 +188,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li></ul>
                     </div>
                 </section>
                 
@@ -338,6 +338,17 @@
 
 
 
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/10/03/new-world/">
+                    new world
+                </a>
+            </div>
+        
+        
+    </nav>
+
   
 </article>
 
@@ -410,10 +421,48 @@
         }
     </script>
     
-    <script> loadComment(); </script>
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
 
 </section>
 
+
+    // Add comment count
+    <script id="dsq-count-scr" src="//hachilin.disqus.com/count.js" async></script>
+    <span class="disqus-comment-count" data-disqus-identifier="2017/10/03/hello-world/"></span>
+    <span class="disqus-comment-count" data-disqus-url="http://yoursite.com/2017/10/03/hello-world/"></span>
+    <script>
+        $(".disqus-comment-count").hide();
+        var $disqusCount = $(".disqus-comment-count");
+        $disqusCount.bind("DOMNodeInserted", function(e) {
+            $(".count-comment").text(
+                $(this).text().replace(/[^0-9]/ig,"")
+            )
+            DISQUSWIDGETS.getCount({reset: true});
+        })
+    </script>
 
     
 
@@ -422,7 +471,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/10/03/new-world/" title="上一篇: new world">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -432,7 +483,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/03/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/03/new-world/">new world</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/03/hello-world/">Hello World</a></li></ul>
 
 
 
