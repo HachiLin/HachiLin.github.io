@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-2.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-3.png">
-<meta property="og:updated_time" content="2017-12-10T08:41:59.134Z">
+<meta property="og:updated_time" content="2017-12-10T08:51:49.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
@@ -293,8 +293,36 @@
 <blockquote>
 <p>node -v<br>npm -v<br>git –version</p>
 </blockquote>
-<p><br><center><img src="http://oxibobu19.bkt.clouddn.com/text2-1.png" alt="1">   </center></p>
-<center>cmd 运行结果<br><br><font face="" color="#FF4500" size="5"><strong>安装Hexo</strong><br><br>1.新建一个文件夹如blog。<br><br><br>2.进入blog文件夹，右键点击<font color="#099ff" size="3" face="黑体"> Git Bash Here。<br><br>3.安装Hexo，输入代码<br>&gt;$ cnpm install hexo-cli -g<br><br>4.初始化blog文件夹<br>&gt;$ hexo init<br><br>5.安装依赖和插件<br>&gt;$ cnpm install<br><br>&gt;$ cnpm install hexo-server –save            #搭建本地服务器所需插件<br><br>&gt;$ cnpm install hexo-deployer-git –save   #使用git方式进行部署博客所需插件<br><br><br><br><font face="" color="#FF4500" size="5"><strong>在本地生成博客静态页面并预览</strong><br><br>1.在本地生成静态网页<br>&gt;$ hexo generate<br><br>此时打开blog文件夹会发现一个用来存放静态文件的public的文件，该命令可简写为<code>$ hexo g </code><br><br>2.启动本地服务器<br>&gt;$ hexo server<br><br>这条指令运行完成后可在本地启动服务器并预览博客，默认网址为<a href="http://localhost:4000/。如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为" target="_blank" rel="external">http://localhost:4000/。如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为</a><code>$ hexo s </code><br><br><center><img src="http://oxibobu19.bkt.clouddn.com/text2-2.png" alt="2">   </center>
+<p><br><img src="http://oxibobu19.bkt.clouddn.com/text2-1.png" alt="1"><br>cmd 运行结果</p>
+<p><font face="" color="#FF4500" size="5"><strong>安装Hexo</strong></font></p>
+<p>1.新建一个文件夹如blog。<br></p>
+<p>2.进入blog文件夹，右键点击<font color="#099ff" size="3" face="黑体"> Git Bash Here。</font></p>
+<p>3.安装Hexo，输入代码</p>
+<blockquote>
+<p>$ cnpm install hexo-cli -g</p>
+</blockquote>
+<p>4.初始化blog文件夹</p>
+<blockquote>
+<p>$ hexo init</p>
+</blockquote>
+<p>5.安装依赖和插件</p>
+<blockquote>
+<p>$ cnpm install </p>
+<p>$ cnpm install hexo-server –save            #搭建本地服务器所需插件</p>
+<p>$ cnpm install hexo-deployer-git –save   #使用git方式进行部署博客所需插件</p>
+</blockquote>
+<p><br><font face="" color="#FF4500" size="5"><strong>在本地生成博客静态页面并预览</strong></font></p>
+<p>1.在本地生成静态网页</p>
+<blockquote>
+<p>$ hexo generate</p>
+</blockquote>
+<p>此时打开blog文件夹会发现一个用来存放静态文件的public的文件，该命令可简写为<code>$ hexo g </code></p>
+<p>2.启动本地服务器</p>
+<blockquote>
+<p>$ hexo server</p>
+</blockquote>
+<p>这条指令运行完成后可在本地启动服务器并预览博客，默认网址为<a href="http://localhost:4000/。如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为" target="_blank" rel="external">http://localhost:4000/。如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为</a><code>$ hexo s </code></p>
+<center><img src="http://oxibobu19.bkt.clouddn.com/text2-2.png" alt="2">   </center>
 
 
 
@@ -313,7 +341,7 @@
 <p>$ hexo deploy       #因为之前已经安装了插件并且在博客配置文件中也配置好了，所以这个命令会在博客根目录下生成一个.deploy_git的文件夹，并 把本地生成的静态文件部署到Tom.github.io这个仓库中的master分支上，该命令可简写为hexo d；</p>
 </blockquote>
 <p>4.在浏览器中访问博客<br>在浏览器中输入Tom.github.io（可能你已经发现了，这个就是之前新建仓库的名字，同时也是你博客的域名），没问题的话，你应该可以再次看到那个熟悉又亲切的博客页面了。</p>
-<h3 id="二-基础博客搭建流程"><a href="#二-基础博客搭建流程" class="headerlink" title="二.基础博客搭建流程"></a>二.基础博客搭建流程</h3></font></font></font></center></the>
+<h3 id="二-基础博客搭建流程"><a href="#二-基础博客搭建流程" class="headerlink" title="二.基础博客搭建流程"></a>二.基础博客搭建流程</h3></the>
       
       
         <div class="page-reward">
@@ -371,7 +399,7 @@
         <p><span>本文标题:</span><a href="/2017/12/10/text2/">hexo+github搭建个人博客</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 HachiLin 的个人博客">HachiLin</a></p>
         <p><span>发布时间:</span>2017年12月10日 - 10时27分</p>
-        <p><span>最后更新:</span>2017年12月10日 - 16时41分</p>
+        <p><span>最后更新:</span>2017年12月10日 - 16时51分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/10/text2/" title="hexo+github搭建个人博客">http://yoursite.com/2017/12/10/text2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/text2/　　作者: HachiLin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
