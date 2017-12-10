@@ -14,7 +14,9 @@
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-2.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-3.png">
-<meta property="og:updated_time" content="2017-12-10T09:09:26.763Z">
+<meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-4.png">
+<meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-5.png">
+<meta property="og:updated_time" content="2017-12-10T09:11:49.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
@@ -309,7 +311,7 @@
 <p>$ cnpm install hexo-server –save            #搭建本地服务器所需插件</p>
 <p>$ cnpm install hexo-deployer-git –save   #使用git方式进行部署博客所需插件</p>
 </blockquote>
-<h4 id="在本地生成博客静态页面并预览"><a href="#在本地生成博客静态页面并预览" class="headerlink" title="在本地生成博客静态页面并预览"></a><br><font face="" color="#FF4500" size="5"><strong>在本地生成博客静态页面并预览</strong></font></h4><p>1.在本地生成静态网页</p>
+<h4 id="在本地生成博客静态页面并预览"><a href="#在本地生成博客静态页面并预览" class="headerlink" title="在本地生成博客静态页面并预览"></a><font face="" color="#FF4500" size="5"><strong>在本地生成博客静态页面并预览</strong></font></h4><p>1.在本地生成静态网页</p>
 <blockquote>
 <p>$ hexo generate</p>
 </blockquote>
@@ -321,19 +323,129 @@
 <p>这条指令运行完成后可在本地启动服务器并预览博客，默认网址为<a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
 <p>如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为<code>$ hexo s </code></p>
 <p><img src="http://oxibobu19.bkt.clouddn.com/text2-2.png" alt="2">   </p>
-<h4 id="在github上创建并设置远程库"><a href="#在github上创建并设置远程库" class="headerlink" title="在github上创建并设置远程库"></a><br><font face="" color="#FF4500" size="5"><strong>在github上创建并设置远程库</strong></font></h4><p>1.创建博客仓库<br>假如你注册的用户名是Tom，那么新建一个名为Tom.github.io的仓库，注意仓库的用户名一定要是用户名+github.io的形式！创建之后，点击setting设置远程库：<br>找到GitHub Pages点击change theme选个主题select theme设置模板<br>等待github pages创建完成，然后输入你创建的地址测试github pager是否创建成功。此时页面是空的没有任何东西。<br><img src="http://oxibobu19.bkt.clouddn.com/text2-3.png" alt="3">  </p>
-<p>2.编辑博客配置文件: _config.yml<br>在hexo根目录（也就是blog文件夹）下找到_config.yml文件，把其中的deploy参数（没有的话就按如下格式新建，注意冒号后面一定要有一个空格），修改为：</p>
+<h4 id="创建GitHub-Pages并配置ssh"><a href="#创建GitHub-Pages并配置ssh" class="headerlink" title="创建GitHub Pages并配置ssh"></a><font face="" color="#FF4500" size="5"><strong>创建GitHub Pages并配置ssh</strong></font></h4><p>1.创建博客仓库。<br>注册并登陆到GitHub官网，假如你注册的用户名是Tom，那么新建一个名为Tom.github.io的仓库，注意仓库的用户名一定要是用户名+github.io的形式！创建之后，点击setting设置远程库：<br>找到GitHub Pages点击change theme选个主题select theme设置模板<br>等待github pages创建完成，然后输入你创建的地址测试github pager是否创建成功。此时页面是空的没有任何东西。<br><img src="http://oxibobu19.bkt.clouddn.com/text2-3.png" alt="3">   </p>
+<p>2.本地生成ssh密钥。<br>git bash下输入<code>ssh-keygen -t rsa -C ‘你的邮箱地址’</code></p>
+<p>3.上传本地的公钥串，使当前电脑与GitHub账户建立联系。<br>在你的电脑C：\ Users\你的计算机用户名.ssh目录下打开刚刚生成的id_rsa.pub，复制里面的内容。然后点击你GitHub账户右上角的头像，选择settings，找到SSH and GPG keys，点击进入之后再点击New SSH key，title随便写，把公钥串粘贴到文本框，保存即可。（详细的仓库创建及ssh的知识可以自主学习）</p>
+<h4 id="本地博客同步到GitHub上"><a href="#本地博客同步到GitHub上" class="headerlink" title="本地博客同步到GitHub上"></a><font face="" color="#FF4500" size="5"><strong>本地博客同步到GitHub上</strong></font></h4><p>这一步其实就是把本地生成的博客内容（静态页面）放到GitHub新建成的仓库LiLei.github.io中。</p>
+<p>1.编辑博客配置文件: _config.yml<br>在hexo根目录（也就是hexoBlog文件夹）下找到_config.yml文件，把其中的deploy参数（没有的话就按如下格式新建，注意冒号后面一定要有一个空格），修改为：</p>
 <blockquote>
 <p>deploy:<br>    type: git<br>    repo: git@github.com:Tom/Tom.github.io.git<br>    branch: master</p>
 </blockquote>
-<p>3.重新部署<br>在博客根目录下打开Git Bash，依次执行如下Hexo命令：</p>
+<p>2.重新部署<br>在博客根目录下打开Git Bash，依次执行如下Hexo命令：</p>
 <blockquote>
 <p>$ hexo clean    #会清除缓存文件db.json及之前生成的静态文件夹public；</p>
-<p>$ hexo g       #会重新生成静态文件夹public；</p>
-<p>$ hexo deploy       #因为之前已经安装了插件并且在博客配置文件中也配置好了，所以这个命令会在博客根目录下生成一个.deploy_git的文件夹，并 把本地生成的静态文件部署到Tom.github.io这个仓库中的master分支上，该命令可简写为hexo d；</p>
+<p>$ hexo g           #会重新生成静态文件夹public；</p>
+<p>$ hexo deploy       #因为之前已经安装了插件并且在博客配置文件中也配置好了，所以这个命令会在博客根目录下生成一个.deploy_git的文件夹，并 把本地生成的静态文件部署到Tom.github.io这个仓库中的master分支上，简写形式为hexo d；</p>
 </blockquote>
-<p>4.在浏览器中访问博客<br>在浏览器中输入Tom.github.io（可能你已经发现了，这个就是之前新建仓库的名字，同时也是你博客的域名），没问题的话，你应该可以再次看到那个熟悉又亲切的博客页面了。</p>
-<h3 id="二-基础博客搭建流程"><a href="#二-基础博客搭建流程" class="headerlink" title="二.基础博客搭建流程"></a>二.基础博客搭建流程</h3></the>
+<p>每当写完一篇文章时可以使用命令hexo  clean &amp;&amp; hexo g &amp;&amp; hexo d重新部署</p>
+<p>3.在浏览器中访问博客<br>在浏览器中输入Tom.github.io（可能你已经发现了，这个就是之前新建仓库的名字，同时也是你博客的域名），没问题的话，你应该可以再次看到那个熟悉又亲切的博客页面了。</p>
+<h3 id="二-博客主题更改及美化"><a href="#二-博客主题更改及美化" class="headerlink" title="二.博客主题更改及美化"></a>二.博客主题更改及美化</h3><h4 id="主题更换"><a href="#主题更换" class="headerlink" title="主题更换"></a><font face="" color="#FF4500" size="5"><strong>主题更换</strong></font></h4><p>1.下载主题<br>关于主题大多都是以压缩包形式，可以去github上搜hexo theme，会出来很多，里面都有介绍。</p>
+<p><img src="http://oxibobu19.bkt.clouddn.com/text2-4.png" alt="4"></p>
+<p>比如我们要下载第二个主题。<br>进入 blog/themes 文件夹中，打开Git Bash面板，输入：<br><code>git clone <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank" rel="external">https://github.com/luuman/hexo-theme-spfk</a> themes/luuman</code><br>把主题包克隆到themes文件夹中即可。   </p>
+<p>2.启用主题<br>与所有 Hexo 主题启用的模式一样。 当克隆/下载 完成后，打开themes下的主题配置文件_config.yml， 找到 theme 字段，并将其值更改为 luuman（注意冒号后面要留一个空格）。<br><img src="http://oxibobu19.bkt.clouddn.com/text2-5.png" alt="5"></p>
+<p>3.验证主题<br>清除并重新生成hexo静态文件，启动本地服务器，然后通过<a href="http://localhost:4000/预览博客：" target="_blank" rel="external">http://localhost:4000/预览博客：</a></p>
+<blockquote>
+<p>hexo clean      #清除静态文件<br>hexo g          #重新生成静态文件<br>hexo s      #启动服务器</p>
+</blockquote>
+<p>4.配置主题<br>内容较多建议参考官方文档<br><a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">https://hexo.io/zh-cn/docs/configuration.html</a><br>修改完之后，可以重新执行hexo s在浏览器查看效果。并确认无误，包括以后需要添加文章，或者更新主题等，都建议先在本地查看无误再远程部署。根_config.yml文件中</p>
+<blockquote>
+<p>Site<br>title: 网站标题<br>subtitle: 副标题<br>description: 个人签名<br>author: 姓名<br>language: zh-Hans<br>timezone:</p>
+</blockquote>
+<p>这里有几个坑需要注意一下：</p>
+<blockquote>
+<p>1、所有的配置“:”符号后面都要带空格，否则执行本地测试直接失败。<br>2、language是设置语言。zh-Hans是中文。<br>3、如果设置zh-Hans后仍出现乱码问题。需要更改文件的字符编码集为UTF-8,方法很多具体，就不详细介绍了。</p>
+</blockquote>
+<p>注意同时要在根config.yml中配置自己的远程仓库地址</p>
+<blockquote>
+<p>Deployment<br> Docs: <a href="https://hexo.io/docs/deployment.htmldeploy" target="_blank" rel="external">https://hexo.io/docs/deployment.htmldeploy</a>:<br> deploy:<br>     type: git<br>    repo: <a href="https://github.com/wapchief/wapchief.github.io.git" target="_blank" rel="external">https://github.com/wapchief/wapchief.github.io.git</a><br>    branch: master</p>
+</blockquote>
+<h4 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a><font face="" color="#FF4500" size="5"><strong>自定义域名</strong></font></h4><p>域名注册商可选择godaddy、万网等，推荐使用万网，速度快，后台介绍简洁明了易上手，大家自行注册。下面以万网注册的域名为例说下如何为博客更换自定义域名。</p>
+<p>详细的教程请参考：<a href="http://www.jianshu.com/p/834d7cc0668d" target="_blank" rel="external">http://www.jianshu.com/p/834d7cc0668d</a></p>
+<h4 id="博客操作"><a href="#博客操作" class="headerlink" title="博客操作"></a><font face="" color="#FF4500" size="5"><strong>博客操作</strong></font></h4><p>1.新建文章<br><code>hexo new post 背影</code><br>在Git Bash中执行上面命令会新建一篇名为‘背影’的文章，源文件会自动生成到blog/source/_post 路径下，后缀为.md，直接打开编辑就可以了。编辑完保存，然后再依次执行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d在</code>博客就可以看到你的文章了（有时候网络问题生成会比较慢，需要等几分钟才可以看到）。</p>
+<p>2.新建页面<br>新建标签、分类、关于我等各种页面，并在博客的菜单栏中显示。这里以新建‘标签’页面来做示范。<br>创建页面。</p>
+<ul>
+<li><p>在Git Bah中执行<code>hexo new page ‘tags’</code>，会在blog/source路径下自动生成一个名为tags的文件夹，里面包含一个index.md的文件，在这个文件中添加对应的页面类型type: tags：</p>
+<hr>
+<p>  title: Tagcloud<br>  date: 2017-12-10 15:24:23<br>  type: ‘tag’  #声明页面类型</p>
+</li>
+<li><p>把页面路径添加到菜单中。<br>编辑主题配置文件（themes/_config.yml）,找到munu字段，添加tag: /tags（格式为item_name: link），如下：</p>
+</li>
+</ul>
+<blockquote>
+<p>menu:<br>    home: /<br>    tag: /tags    #‘标签’’页面的路径</p>
+</blockquote>
+<ul>
+<li>设置博客中‘标签’这个菜单项的显示图标。<br>同样是在主题配置文件中，找到nenu_icons字段，添加tags tags（格式为item_name: icon_name ），如下：</li>
+</ul>
+<blockquote>
+<p>menu_icons:<br>    enable: true     #显示图标<br>    home: home<br>    tag: tags     #tag标签的icons是‘tags’</p>
+</blockquote>
+<ul>
+<li>设置博客中‘标签’这个菜单项的显示文本。<br>上面的item_name并不会直接用于博客界面的显示，只是用来匹配图标和显示在页面上的文字，可以理解为一个桥梁。那么到底在哪里设置呢？<br>首先，在博客配置文件中（blog下的_config.yml文件）找到language字段，设置为zh-Hans；<br>然后， 在themes/luuman/languages路径下找到zh-Hans.yml文件，在menu字段下添加tag: 标签云（格式为item_name: show_name），如下：</li>
+</ul>
+<blockquote>
+<p>menu:<br>    home: 首页<br>    tag: 标签云    #博客页面就会显示‘标签云’</p>
+</blockquote>
+<p>3.更多关于hexo的命令</p>
+<pre><code>
+hexo new "postName" #新建文章
+hexo new page "pageName" #新建页面
+hexo generate #生成静态页面至public目录
+hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+hexo deploy #将.deploy目录部署到GitHub
+
+npm install <plugin-name> --save #安装插件
+npm update #升级插件
+npm uninstall <plugin-name> #卸载插件
+
+hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+hexo d == hexo deploy
+</plugin-name></plugin-name></code></pre>
+
+<p>4.Hexo目录结构</p>
+<pre><code>
+├── .deploy
+├── public
+├── scaffolds
+├── scripts
+├── source
+| ├── _drafts
+| └── _posts
+├── themes
+├── _config.yml
+└── package.json
+</code></pre>
+
+<ul>
+<li>.deploy：执行hexo deploy命令部署到GitHub上的内容目录</li>
+<li>public：执行hexo generate命令，输出的静态网页内容目录</li>
+<li>scaffolds：layout模板文件目录，其中的md文件可以添加编辑</li>
+<li>scripts：扩展脚本目录，这里可以自定义一些javascript脚本</li>
+<li>source：文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404-文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。</li>
+<li>_drafts：草稿文章</li>
+<li>_posts：发布文章</li>
+<li>themes：主题文件目录</li>
+<li>_config.yml：全局配置文件，大多数的设置都在这里</li>
+<li>package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的关于按钮</li>
+</ul>
+<p>更多关于主题的美化可以上网查找教程（这里推荐我使用的主题的教程网址：<a href="https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2）" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next/wiki/%E5%88%9B%E5%BB%BA%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2）</a></p>
+<p>5.提交项目，部署</p>
+<ul>
+<li>安装部署工具（方便以后更新）：<code>npm install hexo-deployer-git –save</code></li>
+<li>初始化本地仓库：<code>git init</code></li>
+<li>连接远程仓库：如果是第一次使用git，在使用git的时候会提示输入用户名和密码，用户名是自己的注册邮箱。<code>git remote add origin <a href="https://github.com/Tom/Tom.github.io.git" target="_blank" rel="external">https://github.com/Tom/Tom.github.io.git</a> </code></li>
+<li>发布hexo到github page,<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></li>
+<li>添加文件到本地仓库<code>git add</code></li>
+<li>提交声明<code>git commit -m ‘内容’</code></li>
+<li>推送到远程仓库（github）<code>git push origin<code></code></code></li>
+<li>文章在hexo目录下的\source_posts文件夹中，是md格式，也就是Markdown格式。<br>以后可以用以下命令部署<blockquote>
+<p>//等于一次性执行了，清空、刷新、部署三个命令<br>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+</blockquote>
+</li>
+</ul>
+</the>
       
       
         <div class="page-reward">
@@ -391,7 +503,7 @@
         <p><span>本文标题:</span><a href="/2017/12/10/text2/">hexo+github搭建个人博客</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 HachiLin 的个人博客">HachiLin</a></p>
         <p><span>发布时间:</span>2017年12月10日 - 10时27分</p>
-        <p><span>最后更新:</span>2017年12月10日 - 17时09分</p>
+        <p><span>最后更新:</span>2017年12月10日 - 17时11分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/10/text2/" title="hexo+github搭建个人博客">http://yoursite.com/2017/12/10/text2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/text2/　　作者: HachiLin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -420,7 +532,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-基础博客搭建流程"><span class="toc-number">1.</span> <span class="toc-text">一.基础博客搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装node和git"><span class="toc-number">1.1.</span> <span class="toc-text">安装node和git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在本地生成博客静态页面并预览"><span class="toc-number">1.3.</span> <span class="toc-text">在本地生成博客静态页面并预览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在github上创建并设置远程库"><span class="toc-number">1.4.</span> <span class="toc-text">在github上创建并设置远程库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-基础博客搭建流程"><span class="toc-number">2.</span> <span class="toc-text">二.基础博客搭建流程</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-基础博客搭建流程"><span class="toc-number">1.</span> <span class="toc-text">一.基础博客搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装node和git"><span class="toc-number">1.1.</span> <span class="toc-text">安装node和git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在本地生成博客静态页面并预览"><span class="toc-number">1.3.</span> <span class="toc-text">在本地生成博客静态页面并预览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建GitHub-Pages并配置ssh"><span class="toc-number">1.4.</span> <span class="toc-text">创建GitHub Pages并配置ssh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地博客同步到GitHub上"><span class="toc-number">1.5.</span> <span class="toc-text">本地博客同步到GitHub上</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-博客主题更改及美化"><span class="toc-number">2.</span> <span class="toc-text">二.博客主题更改及美化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主题更换"><span class="toc-number">2.1.</span> <span class="toc-text">主题更换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义域名"><span class="toc-number">2.2.</span> <span class="toc-text">自定义域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#博客操作"><span class="toc-number">2.3.</span> <span class="toc-text">博客操作</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
