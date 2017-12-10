@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-3.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-4.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-5.png">
-<meta property="og:updated_time" content="2017-12-10T16:39:53.104Z">
+<meta property="og:updated_time" content="2017-12-10T16:47:00.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
@@ -338,7 +338,6 @@ $ hexo generate
 <p>此时打开blog文件夹会发现一个用来存放静态文件的public的文件，该命令可简写为<code>$ hexo g </code></p>
 <p>2.启动本地服务器</p>
 <pre><code>
-
 $ hexo server
 
 </code></pre>
@@ -401,7 +400,18 @@ timezone:
 <p>1、所有的配置“:”符号后面都要带空格，否则执行本地测试直接失败。<br>2、language是设置语言。zh-Hans是中文。<br>3、如果设置zh-Hans后仍出现乱码问题。需要更改文件的字符编码集为UTF-8,方法很多具体，就不详细介绍了。</p>
 </blockquote>
 <p>注意同时要在根config.yml中配置自己的远程仓库地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/wapchief/wapchief.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<pre><code>
+Deployment
+Docs:  https://hexo.io/docs/deployment.html
+deploy: 
+​    type: git
+​    repo: https://github.com/Tom/Tom.github.io.git
+​    branch: master
+
+</code></pre>
+
+
+
 <h4 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a><font face="" color="#FF4500" size="5"><strong>自定义域名</strong></font></h4><p>域名注册商可选择godaddy、万网等，推荐使用万网，速度快，后台介绍简洁明了易上手，大家自行注册。下面以万网注册的域名为例说下如何为博客更换自定义域名。</p>
 <p>详细的教程请参考：<a href="http://www.jianshu.com/p/834d7cc0668d" target="_blank" rel="external">http://www.jianshu.com/p/834d7cc0668d</a></p>
 <h4 id="博客操作"><a href="#博客操作" class="headerlink" title="博客操作"></a><font face="" color="#FF4500" size="5"><strong>博客操作</strong></font></h4><p>1.新建文章<br><code>hexo new post 背影</code><br>在Git Bash中执行上面命令会新建一篇名为‘背影’的文章，源文件会自动生成到blog/source/_post 路径下，后缀为.md，直接打开编辑就可以了。编辑完保存，然后再依次执行<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d在</code>博客就可以看到你的文章了（有时候网络问题生成会比较慢，需要等几分钟才可以看到）。</p>
@@ -417,44 +427,13 @@ timezone:
   </code></pre>
 </li>
 <li><p>把页面路径添加到菜单中。<br>编辑主题配置文件（themes/_config.yml）,找到munu字段，添加tag: /tags（格式为item_name: link），如下：</p>
-<pre><code>
-
-menu:
-
-home: /
-tag: /tags    #‘标签’’页面的路径
-
-</code></pre>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">home: /</div><div class="line">tag: /tags    #‘标签’’页面的路径</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>设置博客中‘标签’这个菜单项的显示图标。<br>同样是在主题配置文件中，找到nenu_icons字段，添加tags tags（格式为item_name: icon_name ），如下：</p>
-<pre><code>
-
-menu_icons:
-
-enable: true     #显示图标
-home: home
-tag: tags     #tag标签的icons是‘tags’
-
-</code></pre>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">menu_icons:</div><div class="line">enable: true     #显示图标</div><div class="line">home: home</div><div class="line">tag: tags     #tag标签的icons是‘tags’</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>设置博客中‘标签’这个菜单项的显示文本。<br>上面的item_name并不会直接用于博客界面的显示，只是用来匹配图标和显示在页面上的文字，可以理解为一个桥梁。那么到底在哪里设置呢？<br>首先，在博客配置文件中（blog下的_config.yml文件）找到language字段，设置为zh-Hans；<br>然后， 在themes/luuman/languages路径下找到zh-Hans.yml文件，在menu字段下添加tag: 标签云（格式为item_name: show_name），如下：</p>
-<pre><code>
-
-menu:
-
-home: 首页
-tag: 标签云    #博客页面就会显示‘标签云’
-
-</code></pre>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">home: 首页</div><div class="line">tag: 标签云    #博客页面就会显示‘标签云’</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>3.更多关于hexo的命令</p>
@@ -589,7 +568,7 @@ hexo clean && hexo g && hexo d
         <p><span>本文标题:</span><a href="/2017/12/10/text2/">hexo+github搭建个人博客</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 HachiLin 的个人博客">HachiLin</a></p>
         <p><span>发布时间:</span>2017年12月10日 - 10时27分</p>
-        <p><span>最后更新:</span>2017年12月11日 - 00时39分</p>
+        <p><span>最后更新:</span>2017年12月11日 - 00时47分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/10/text2/" title="hexo+github搭建个人博客">http://yoursite.com/2017/12/10/text2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/text2/　　作者: HachiLin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
