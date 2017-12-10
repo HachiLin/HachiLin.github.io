@@ -281,8 +281,7 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p>##hexo+github搭建个人博客</p>
-<h3 id="一-基础博客搭建流程"><a href="#一-基础博客搭建流程" class="headerlink" title="一.基础博客搭建流程"></a>一.基础博客搭建流程</h3><p><font face="" color="#FF4500" size="5"><strong>1.1 安装node和git</strong></font></p>
-<p>1.安装node.js（<a href="http://nodejs.cn/" target="_blank" rel="external">Node.js中文官网</a>）。自己根据情况安装合适的版本。<br></p>
+<h3 id="一-基础博客搭建流程"><a href="#一-基础博客搭建流程" class="headerlink" title="一.基础博客搭建流程"></a>一.基础博客搭建流程</h3><h4 id="1-1-安装node和git"><a href="#1-1-安装node和git" class="headerlink" title="1.1 安装node和git"></a><font face="" color="#FF4500" size="5"><strong>1.1 安装node和git</strong></font></h4><p>1.安装node.js（<a href="http://nodejs.cn/" target="_blank" rel="external">Node.js中文官网</a>）。自己根据情况安装合适的版本。<br></p>
 <p>2.在本机安装git（<a href="https://git-scm.com/" target="_blank" rel="external">Git官网</a>)。根据情况安装合适的版本。安装正确的话，在桌面或文件夹空白处鼠标右键菜单会新增“Git GUI Here”和“Git Bash Here”两个选项。<br></p>
 <p>3.安装npm，<a href="https://npm.taobao.org/" target="_blank" rel="external">淘宝cnpm官网</a>。由于npm国内下载速度经常抽风，所以建议安装淘宝的这个镜像；使用方法就是在命令中把npm换成cnpm即可。<br>安装方法：在cmd工具中输入如下命令</p>
 <blockquote>
@@ -294,8 +293,7 @@
 <p>node -v<br>npm -v<br>git –version</p>
 </blockquote>
 <p><br><img src="http://oxibobu19.bkt.clouddn.com/text2-1.png" alt="1"><br>cmd 运行结果</p>
-<p><font face="" color="#FF4500" size="5"><strong>1.2 安装Hexo</strong></font></p>
-<p>1.新建一个文件夹如blog。<br></p>
+<h4 id="1-2-安装Hexo"><a href="#1-2-安装Hexo" class="headerlink" title="1.2 安装Hexo"></a><font face="" color="#FF4500" size="5"><strong>1.2 安装Hexo</strong></font></h4><p>1.新建一个文件夹如blog。<br></p>
 <p>2.进入blog文件夹，右键点击<font color="#099ff" size="3" face="黑体"> Git Bash Here。</font></p>
 <p>3.安装Hexo，输入代码</p>
 <blockquote>
@@ -311,8 +309,7 @@
 <p>$ cnpm install hexo-server –save            #搭建本地服务器所需插件</p>
 <p>$ cnpm install hexo-deployer-git –save   #使用git方式进行部署博客所需插件</p>
 </blockquote>
-<p><br><font face="" color="#FF4500" size="5"><strong>1.3 在本地生成博客静态页面并预览</strong></font></p>
-<p>1.在本地生成静态网页</p>
+<h4 id="1-3-在本地生成博客静态页面并预览"><a href="#1-3-在本地生成博客静态页面并预览" class="headerlink" title="1.3 在本地生成博客静态页面并预览"></a><br><font face="" color="#FF4500" size="5"><strong>1.3 在本地生成博客静态页面并预览</strong></font></h4><p>1.在本地生成静态网页</p>
 <blockquote>
 <p>$ hexo generate</p>
 </blockquote>
@@ -324,8 +321,7 @@
 <p>这条指令运行完成后可在本地启动服务器并预览博客，默认网址为<a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
 <p>如果以上步骤都不出意外的话，在浏览器中打开该网址，就会看到一个Hexo博客初始化的页面。改命令可简写为<code>$ hexo s </code></p>
 <p><img src="http://oxibobu19.bkt.clouddn.com/text2-2.png" alt="2">   </p>
-<p><br><font face="" color="#FF4500" size="5"><strong>1.4 在github上创建并设置远程库</strong></font></p>
-<p>1.创建博客仓库<br>假如你注册的用户名是Tom，那么新建一个名为Tom.github.io的仓库，注意仓库的用户名一定要是用户名+github.io的形式！创建之后，点击setting设置远程库：<br>找到GitHub Pages点击change theme选个主题select theme设置模板<br>等待github pages创建完成，然后输入你创建的地址测试github pager是否创建成功。此时页面是空的没有任何东西。<br><img src="http://oxibobu19.bkt.clouddn.com/text2-3.png" alt="3">  </p>
+<h4 id="1-4-在github上创建并设置远程库"><a href="#1-4-在github上创建并设置远程库" class="headerlink" title="1.4 在github上创建并设置远程库"></a><br><font face="" color="#FF4500" size="5"><strong>1.4 在github上创建并设置远程库</strong></font></h4><p>1.创建博客仓库<br>假如你注册的用户名是Tom，那么新建一个名为Tom.github.io的仓库，注意仓库的用户名一定要是用户名+github.io的形式！创建之后，点击setting设置远程库：<br>找到GitHub Pages点击change theme选个主题select theme设置模板<br>等待github pages创建完成，然后输入你创建的地址测试github pager是否创建成功。此时页面是空的没有任何东西。<br><img src="http://oxibobu19.bkt.clouddn.com/text2-3.png" alt="3">  </p>
 <p>2.编辑博客配置文件: _config.yml<br>在hexo根目录（也就是blog文件夹）下找到_config.yml文件，把其中的deploy参数（没有的话就按如下格式新建，注意冒号后面一定要有一个空格），修改为：</p>
 <blockquote>
 <p>deploy:<br>    type: git<br>    repo: git@github.com:Tom/Tom.github.io.git<br>    branch: master</p>
@@ -424,7 +420,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-基础博客搭建流程"><span class="toc-number">1.</span> <span class="toc-text">一.基础博客搭建流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-基础博客搭建流程"><span class="toc-number">2.</span> <span class="toc-text">二.基础博客搭建流程</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-基础博客搭建流程"><span class="toc-number">1.</span> <span class="toc-text">一.基础博客搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-安装node和git"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 安装node和git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-安装Hexo"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-在本地生成博客静态页面并预览"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 在本地生成博客静态页面并预览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-在github上创建并设置远程库"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 在github上创建并设置远程库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-基础博客搭建流程"><span class="toc-number">2.</span> <span class="toc-text">二.基础博客搭建流程</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
