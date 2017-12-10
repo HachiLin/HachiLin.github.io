@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-3.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-4.png">
 <meta property="og:image" content="http://oxibobu19.bkt.clouddn.com/text2-5.png">
-<meta property="og:updated_time" content="2017-12-10T16:47:00.292Z">
+<meta property="og:updated_time" content="2017-12-10T16:49:44.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github搭建个人博客">
 <meta name="twitter:image" content="http://oxibobu19.bkt.clouddn.com/text2-1.png">
@@ -418,13 +418,7 @@ deploy:
 <p>2.新建页面<br>新建标签、分类、关于我等各种页面，并在博客的菜单栏中显示。这里以新建‘标签’页面来做示范。<br>创建页面。</p>
 <ul>
 <li><p>在Git Bah中执行<code>hexo new page ‘tags’</code>，会在blog/source路径下自动生成一个名为tags的文件夹，里面包含一个index.md的文件，在这个文件中添加对应的页面类型type: tags：</p>
-  <pre><code>
-
-  title: Tagcloud
-  date: 2017-12-10 15:24:23
-  type: 'tag'  #声明页面类型
-
-  </code></pre>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">title: Tagcloud</div><div class="line">date: 2017-12-10 15:24:23</div><div class="line">type: &apos;tag&apos;  #声明页面类型</div></pre></td></tr></table></figure>
 </li>
 <li><p>把页面路径添加到菜单中。<br>编辑主题配置文件（themes/_config.yml）,找到munu字段，添加tag: /tags（格式为item_name: link），如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">home: /</div><div class="line">tag: /tags    #‘标签’’页面的路径</div></pre></td></tr></table></figure>
@@ -498,16 +492,7 @@ hexo d == hexo deploy
 <li><p>推送到远程仓库（github）<code>git push origin<code></code></code></p>
 </li>
 <li><p>文章在hexo目录下的\source_posts文件夹中，是md格式，也就是Markdown格式。<br>以后可以用以下命令部署</p>
-<pre><code>
-
-//等于一次性执行了，清空、刷新、部署三个命令
-hexo clean && hexo g && hexo d
-
-</code></pre>
-
-
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//等于一次性执行了，清空、刷新、部署三个命令</div><div class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </the>
@@ -568,7 +553,7 @@ hexo clean && hexo g && hexo d
         <p><span>本文标题:</span><a href="/2017/12/10/text2/">hexo+github搭建个人博客</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 HachiLin 的个人博客">HachiLin</a></p>
         <p><span>发布时间:</span>2017年12月10日 - 10时27分</p>
-        <p><span>最后更新:</span>2017年12月11日 - 00时47分</p>
+        <p><span>最后更新:</span>2017年12月11日 - 00时49分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/12/10/text2/" title="hexo+github搭建个人博客">http://yoursite.com/2017/12/10/text2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/text2/　　作者: HachiLin" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
